@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="QuestCard" parent="Widget.Material3.CardView.Filled">
+        <item name="cardElevation">0dp</item>
+        <item name="cardPreventCornerOverlap">false</item>
+        <item name="strokeWidth">0dp</item>
+    </style>
+
+    <style name="QuestText">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textColor">@color/quest_ink</item>
+    </style>
+
+    <style name="QuestTextHeading" parent="QuestText">
+        <item name="android:minHeight">27dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="QuestTextCaption" parent="QuestText">
+        <item name="android:minHeight">18dp</item>
+        <item name="android:textColor">@color/quest_muted</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="QuestTextBody" parent="QuestText">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:minHeight">21dp</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="QuestTextSmall" parent="QuestText">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:minHeight">15dp</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="QuestRankTab" parent="QuestTextBody">
+        <item name="android:gravity">center</item>
+        <item name="android:minHeight">38dp</item>
+        <item name="android:textColor">@color/quest_muted</item>
+    </style>
+</resources>

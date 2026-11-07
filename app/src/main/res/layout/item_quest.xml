@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/QuestCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/quest_canvas"
+    app:cardCornerRadius="12dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minHeight="62dp"
+        android:paddingEnd="16dp">
+
+        <android.widget.CheckBox
+            android:id="@+id/quest_item_check"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:button="@drawable/quest_checkbox"
+            android:buttonTint="@null"
+            android:saveEnabled="false"
+            tools:contentDescription="세탁실 이용 방법 익히기 완료" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp">
+
+            <TextView
+                android:id="@+id/quest_item_title"
+                style="@style/QuestTextBody"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="@string/quest_sample_laundry" />
+
+            <TextView
+                android:id="@+id/quest_item_details"
+                style="@style/QuestTextSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/quest_muted"
+                tools:text="생활 가이드 · +20 XP" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/quest_icon_right" />
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="quest_title">퀘스트</string>
+    <string name="quest_back">뒤로 가기</string>
+    <string name="quest_journey">MY SERVICE JOURNEY</string>
+    <string name="quest_current_rank">일병 · 한 걸음 더</string>
+    <string name="quest_sample_level">Lv. 4</string>
+    <string name="quest_sample_xp">320 / 500 XP &gt;</string>
+    <string name="quest_rank_private">이병</string>
+    <string name="quest_rank_first_class">일병</string>
+    <string name="quest_rank_corporal">상병</string>
+    <string name="quest_rank_sergeant">병장</string>
+    <string name="quest_rank_heading">일병 퀘스트</string>
+    <string name="quest_rank_description">작은 실천이 쌓여, 익숙한 군 생활로</string>
+    <string name="quest_rank_progress_format">%1$d / %2$d 완료</string>
+    <string name="quest_bundle_name">100일 적응 미션</string>
+    <string name="quest_bundle_description">내 생활, 스스로 챙기기</string>
+    <string name="quest_bundle_progress_format">%1$d / %2$d</string>
+    <string name="quest_edit">편집</string>
+    <string name="quest_add_bundle">새 퀘스트 묶음 추가</string>
+    <string name="quest_sample_locker">관물대 정리하기</string>
+    <string name="quest_sample_laundry">세탁실 이용 방법 익히기</string>
+    <string name="quest_sample_leave">휴가 신청 절차 알아보기</string>
+    <string name="quest_status_done">완료</string>
+    <string name="quest_type_life">생활 가이드</string>
+    <string name="quest_type_admin">행정 가이드</string>
+    <string name="quest_item_reward_format">%1$s · +%2$d XP</string>
+    <string name="quest_item_check_description">%1$s 완료</string>
+</resources>

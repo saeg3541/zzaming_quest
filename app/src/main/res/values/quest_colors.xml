@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="quest_canvas">#F5F6F0</color>
+    <color name="quest_ink">#202D24</color>
+    <color name="quest_brand">#354D35</color>
+    <color name="quest_muted">#687568</color>
+    <color name="quest_lime">#CFE79C</color>
+    <color name="quest_line">#E3E7DD</color>
+    <color name="quest_soft">#EBF1E5</color>
+    <color name="quest_sand">#F6EEDB</color>
+    <color name="quest_gold">#A67426</color>
+</resources>
