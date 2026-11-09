@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="auth_wordmark">ZZAMING</string>
+    <string name="auth_app_name">짬인지</string>
+    <string name="auth_login">로그인</string>
+    <string name="auth_login_description">이메일과 비밀번호를 입력해주세요.</string>
+    <string name="auth_email">이메일</string>
+    <string name="auth_email_hint">이메일을 입력해주세요.</string>
+    <string name="auth_password">비밀번호</string>
+    <string name="auth_password_hint">비밀번호를 입력해주세요.</string>
+    <string name="auth_show_password">비밀번호 보이기</string>
+    <string name="auth_show">보기</string>
+    <string name="auth_sign_up_test">회원가입(❗테❗스❗트❗용❗도❗)</string>"
+
+    <style name="AuthInputBox" parent="QuestCard">
+        <item name="cardBackgroundColor">@color/quest_canvas</item>
+        <item name="cardCornerRadius">16dp</item>
+        <item name="strokeColor">@color/quest_muted</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+
+    <style name="AuthInput" parent="QuestTextBody">
+        <item name="android:background">@null</item>
+        <item name="android:minHeight">52dp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">8dp</item>
+        <item name="android:textColorHint">@color/quest_muted</item>
+    </style>
+
+    <style name="AuthTextButton" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:minWidth">48dp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:padding">0dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/quest_brand</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="AuthPrimaryButton" parent="Widget.Material3.Button">
+        <item name="android:minHeight">48dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">14sp</item>
+        <item name="backgroundTint">@color/quest_brand</item>
+        <item name="cornerRadius">16dp</item>
+    </style>
+</resources>

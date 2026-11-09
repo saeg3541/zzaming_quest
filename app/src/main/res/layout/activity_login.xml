@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/quest_canvas"
+    android:fillViewport="true"
+    tools:context=".LogInActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingStart="20dp"
+        android:paddingTop="20dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="76dp">
+
+        <include layout="@layout/view_auth_brand" />
+
+        <com.google.android.material.card.MaterialCardView
+            sytle="@style/QuestCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="20dp"
+            app:contentPadding="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/QuestTextHeading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/auth_login"/>
+                <TextView
+                    style="@style/QuestTextCaption"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/auth_login_description"/>
+                <TextView
+                    style="@style/QuestTextBody"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:labelFor="@id/login_email_input"
+                    android:text="@string/auth_email"/>
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/AuthInputBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/login_email_input"
+                        style="@style/AuthInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints="emailAddress"
+                        android:hint="@string/auth_email_hint"
+                        android:imeOptions="actionNext"
+                        android:inputType="textEmailAddress"
+                        android:nextFocusForward="@id/login_password_input"/>
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    style="@style/QuestTextBody"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:labelFor="@id/login_password_input"
+                    android:text="@string/auth_password"/>
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/AuthInputBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingEnd="8dp">
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/login_password_input"
+                            style="@style/AuthInput"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:autofillHints="password"
+                            android:hint="@string/auth_password_hint"
+                            android:imeOptions="actionDone"
+                            android:inputType="textPassword" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/login_password_visibility_button"
+                            style="@style/AuthTextButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@string/auth_show_password"
+                            android:text="@string/auth_show" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/login_button"
+                    style="@style/AuthPrimaryButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/auth_login" />
+
+<!--            시험용 가입버튼-->
+                <com.google.android.material.button.MaterialButton
+                    style="@style/AuthPrimaryButton"
+                    android:id="@+id/test_sign_up_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/auth_sign_up_test"/>
+
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+</ScrollView>

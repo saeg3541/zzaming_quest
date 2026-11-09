@@ -8,12 +8,25 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/test_intent_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="없다ㅏㅏㅏㅏㅏ앗"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/test_logout_button"
+        android:layout_marginBottom="10dp"/>
+
+
+    <Button
+        android:id="@+id/test_logout_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="❗테❗스❗트❗로❗그❗아❗웃❗"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
