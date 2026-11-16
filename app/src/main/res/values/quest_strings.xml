@@ -2,6 +2,11 @@
 <resources>
     <string name="quest_title">퀘스트</string>
     <string name="quest_back">뒤로 가기</string>
+    <string name="quest_detail_heading">퀘스트 상세</string>
+    <string name="quest_detail_name_label">퀘스트 이름</string>
+    <string name="quest_detail_description_label">수행 안내</string>
+    <string name="quest_detail_reward_label">완료 보상</string>
+    <string name="quest_detail_reward_xp_format">+%1$d XP</string>
     <string name="quest_journey">MY SERVICE JOURNEY</string>
     <string name="quest_current_rank">일병 · 한 걸음 더</string>
     <string name="quest_sample_level">Lv. 4</string>
@@ -22,8 +27,26 @@
     <string name="quest_sample_laundry">세탁실 이용 방법 익히기</string>
     <string name="quest_sample_leave">휴가 신청 절차 알아보기</string>
     <string name="quest_status_done">완료</string>
+    <string name="quest_type_category">%1%s 가이드</string>
     <string name="quest_type_life">생활 가이드</string>
     <string name="quest_type_admin">행정 가이드</string>
-    <string name="quest_item_reward_format">%1$s · +%2$d XP</string>
+    <string name="quest_item_reward_format">%1$s 가이드 · +%2$d XP</string>
     <string name="quest_item_check_description">%1$s 완료</string>
+    <string name="quest_detail_xp_reward">+%1$d XP</string>
+    <string name="quest_editor_heading">퀘스트 편집</string>
+    <string name="quest_editor_form_heading">퀘스트 정보 수정</string>
+    <string name="quest_editor_intro">완료한 퀘스트의 내용과 보상을 확인해요.</string>
+    <string name="quest_editor_title_label">퀘스트 이름 *</string>
+    <string name="quest_editor_description_label">퀘스트 설명 · 선택</string>
+    <string name="quest_editor_category_label">분류</string>
+    <string name="quest_editor_category_life">생활</string>
+    <string name="quest_editor_category_admin">행정</string>
+    <string name="quest_editor_category_duty">직무</string>
+    <string name="quest_editor_category_other">기타</string>
+    <string name="quest_editor_reward_label">완료 보상 XP</string>
+    <string name="quest_editor_xp_unit" translatable="false">XP</string>
+    <string name="quest_editor_reward_hint">퀘스트를 완료하면 설정한 XP를 받아요.</string>
+    <string name="quest_editor_preview_label">목록 미리보기</string>
+    <string name="quest_editor_save_hint">변경한 내용은 퀘스트 목록에 반영돼요.</string>
+    <string name="quest_editor_save">변경사항 저장</string>
 </resources>

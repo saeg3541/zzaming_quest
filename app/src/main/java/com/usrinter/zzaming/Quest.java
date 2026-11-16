@@ -7,12 +7,17 @@ public class Quest {
     private String description;
     private int rewardXp;
 
-    public Quest(String questId, String bundleId, String title, String description, int rewardXp) {
+    private QuestCategory category;
+
+
+
+    public Quest(String questId, String bundleId, String title, String description, int rewardXp, QuestCategory category) {
         this.questId = questId;
         this.bundleId = bundleId;
         this.title = title;
         this.description = description;
         this.rewardXp = rewardXp;
+        this.category = category;
     }
 
     public String getQuestId() {
@@ -53,5 +58,13 @@ public class Quest {
 
     public void setRewardXp(int rewardXp) {
         this.rewardXp = rewardXp;
+    }
+
+    public QuestCategory getCategory() {
+        return category;
+    }
+
+    public void setCategory(QuestCategory category) {
+        this.category = category;
     }
 }

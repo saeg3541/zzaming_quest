@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/quest_canvas"
+    android:focusableInTouchMode="true"
+    tools:context=".QuestEditorActivity">
+
+    <FrameLayout
+        android:id="@+id/quest_editor_toolbar"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/quest_editor_back"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="start|center_vertical"
+            android:layout_marginStart="6dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/quest_back"
+            android:scaleType="center"
+            android:src="@drawable/quest_icon_back" />
+
+        <TextView
+            style="@style/QuestTextHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:accessibilityHeading="true"
+            android:text="@string/quest_editor_heading" />
+
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/quest_editor_toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="20dp"
+            android:paddingTop="12dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="20dp">
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/QuestCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/quest_soft"
+                app:cardCornerRadius="99dp">
+
+                <TextView
+                    android:id="@+id/quest_editor_target"
+                    style="@style/QuestTextCaption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="10dp"
+                    android:paddingTop="4dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="4dp"
+                    android:textColor="@color/quest_brand"
+                    tools:text="일병 · 100일 적응 미션" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                style="@style/QuestTextHeading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/quest_editor_form_heading" />
+
+            <TextView
+                style="@style/QuestTextCaption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/quest_editor_intro" />
+
+            <TextView
+                style="@style/QuestTextCaption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:labelFor="@id/quest_editor_title_input"
+                android:text="@string/quest_editor_title_label" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/quest_editor_title_input"
+                style="@style/QuestTextBody"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/quest_editor_input_background"
+                android:imeOptions="actionNext"
+                android:inputType="textCapSentences"
+                android:minHeight="58dp"
+                android:nextFocusForward="@id/quest_editor_description_input"
+                android:padding="16dp"
+                tools:text="@string/quest_sample_locker" />
+
+            <TextView
+                style="@style/QuestTextCaption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:labelFor="@id/quest_editor_description_input"
+                android:text="@string/quest_editor_description_label" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/quest_editor_description_input"
+                style="@style/QuestTextBody"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/quest_editor_input_background"
+                android:gravity="start|top"
+                android:inputType="textCapSentences|textMultiLine"
+                android:minHeight="76dp"
+                android:nextFocusForward="@id/quest_editor_reward_xp_input"
+                android:padding="16dp"
+                tools:text="개인 물품을 용도별로 정리하고&#10;관물대 안을 깨끗하게 유지해요." />
+
+            <TextView
+                style="@style/QuestTextCaption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:labelFor="@id/quest_editor_category_group"
+                android:text="@string/quest_editor_category_label" />
+
+            <RadioGroup
+                android:id="@+id/quest_editor_category_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:checkedButton="@id/quest_editor_category_life"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/quest_editor_category_life"
+                    style="@style/QuestEditorCategory"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/quest_editor_category_life" />
+
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/quest_editor_category_admin"
+                    style="@style/QuestEditorCategory"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/quest_editor_category_admin" />
+
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/quest_editor_category_duty"
+                    style="@style/QuestEditorCategory"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/quest_editor_category_duty" />
+
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/quest_editor_category_other"
+                    style="@style/QuestEditorCategory"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/quest_editor_category_other" />
+
+            </RadioGroup>
+
+            <TextView
+                style="@style/QuestTextCaption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:labelFor="@id/quest_editor_reward_xp_input"
+                android:text="@string/quest_editor_reward_label" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/quest_editor_input_background"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/quest_editor_reward_xp_input"
+                    style="@style/QuestTextBody"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:imeOptions="actionDone"
+                    android:inputType="number"
+                    android:minHeight="50dp"
+                    android:padding="0dp"
+                    tools:text="20" />
+
+                <TextView
+                    style="@style/QuestTextCaption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:importantForAccessibility="no"
+                    android:text="@string/quest_editor_xp_unit" />
+
+            </LinearLayout>
+
+            <TextView
+                style="@style/QuestTextSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/quest_editor_reward_hint"
+                android:textColor="@color/quest_muted" />
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/QuestCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:cardBackgroundColor="@color/quest_soft"
+                app:cardCornerRadius="16dp"
+                app:contentPadding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/QuestTextCaption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/quest_editor_preview_label"
+                        android:textColor="@color/quest_brand" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center_vertical"
+                        android:minHeight="62dp"
+                        android:orientation="horizontal"
+                        android:paddingEnd="16dp">
+
+                        <android.widget.CheckBox
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@null"
+                            android:button="@drawable/quest_checkbox"
+                            android:buttonTint="@null"
+                            android:checked="true"
+                            android:clickable="false"
+                            android:focusable="false"
+                            android:importantForAccessibility="no" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="12dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:paddingTop="8dp"
+                            android:paddingBottom="8dp">
+
+                            <TextView
+                                android:id="@+id/quest_editor_preview_title"
+                                style="@style/QuestTextBody"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/quest_muted"
+                                android:textSize="13sp"
+                                tools:text="@string/quest_sample_locker" />
+
+                            <TextView
+                                android:id="@+id/quest_editor_preview_details"
+                                style="@style/QuestTextSmall"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/quest_muted"
+                                tools:text="완료 · +20 XP" />
+
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:importantForAccessibility="no"
+                            android:src="@drawable/quest_icon_right" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                style="@style/QuestTextSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:minHeight="24dp"
+                android:text="@string/quest_editor_save_hint"
+                android:textColor="@color/quest_muted" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/quest_editor_save"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:letterSpacing="0"
+                android:minHeight="48dp"
+                android:text="@string/quest_editor_save"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:backgroundTint="@color/quest_brand"
+                app:cornerRadius="16dp" />
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

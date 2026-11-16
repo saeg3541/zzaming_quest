@@ -51,6 +51,7 @@
         </LinearLayout>
 
         <ImageView
+            android:id="@+id/quest_right_icon"
             android:layout_width="16dp"
             android:layout_height="16dp"
             android:importantForAccessibility="no"

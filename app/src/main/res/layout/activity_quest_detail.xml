@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/quest_canvas"
+    tools:context=".QuestDetailActivity">
+
+    <FrameLayout
+        android:id="@+id/quest_detail_toolbar"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/quest_detail_back"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="start|center_vertical"
+            android:layout_marginStart="6dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/quest_back"
+            android:scaleType="center"
+            android:src="@drawable/quest_icon_back" />
+
+        <TextView
+            style="@style/QuestTextHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:accessibilityHeading="true"
+            android:text="@string/quest_detail_heading" />
+
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/quest_detail_toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="20dp"
+            android:paddingTop="12dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="20dp">
+
+            <TextView
+                style="@style/QuestTextCaption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/quest_detail_name_label" />
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/QuestCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="16dp"
+                app:contentPadding="16dp"
+                app:strokeColor="@color/quest_line"
+                app:strokeWidth="1dp">
+
+                <TextView
+                    android:id="@+id/quest_detail_title"
+                    style="@style/QuestTextHeading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="@string/quest_sample_locker" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                style="@style/QuestTextCaption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/quest_detail_description_label" />
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/QuestCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="16dp"
+                app:contentPadding="16dp"
+                app:strokeColor="@color/quest_line"
+                app:strokeWidth="1dp">
+
+                <TextView
+                    android:id="@+id/quest_detail_description"
+                    style="@style/QuestTextBody"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="top"
+                    android:lineSpacingExtra="3dp"
+                    android:minHeight="42dp"
+                    tools:text="개인 물품을 용도별로 정리하고 관물대 안을 깨끗하게 유지해요." />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                style="@style/QuestTextCaption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/quest_detail_reward_label" />
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/QuestCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="16dp"
+                app:contentPadding="16dp"
+                app:strokeColor="@color/quest_line"
+                app:strokeWidth="1dp">
+
+                <TextView
+                    android:id="@+id/quest_detail_reward_xp"
+                    style="@style/QuestTextBody"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/quest_brand"
+                    tools:text="+20 XP" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

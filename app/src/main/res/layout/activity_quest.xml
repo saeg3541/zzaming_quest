@@ -278,6 +278,7 @@
                             android:layout_weight="1">
 
                             <TextView
+                                android:id="@+id/quest_bundle_name"
                                 style="@style/QuestTextCaption"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -308,6 +309,7 @@
                         android:gravity="center_vertical">
 
                         <TextView
+                            android:id="@+id/quest_bundle_description"
                             style="@style/QuestTextBody"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -323,26 +325,11 @@
                             tools:text="1 / 3" />
                     </LinearLayout>
 
-                    <include
-                        android:id="@+id/quest_locker_row"
-                        layout="@layout/item_quest"
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/quest_row_recycler"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp" />
-
-                    <include
-                        android:id="@+id/quest_laundry_row"
-                        layout="@layout/item_quest"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp" />
-
-                    <include
-                        android:id="@+id/quest_leave_row"
-                        layout="@layout/item_quest"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp" />
+                        android:layout_marginTop="12dp"/>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
