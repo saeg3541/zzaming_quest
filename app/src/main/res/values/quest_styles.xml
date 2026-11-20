@@ -38,9 +38,12 @@
     </style>
 
     <style name="QuestRankTab" parent="QuestTextBody">
+        <item name="android:background">@drawable/quest_rank_tab_selected</item>
+        <item name="android:button">@null</item>
         <item name="android:gravity">center</item>
         <item name="android:minHeight">38dp</item>
-        <item name="android:textColor">@color/quest_muted</item>
+        <item name="android:padding">0dp</item>
+        <item name="android:textColor">@color/quest_rank_tab_text</item>
     </style>
 
     <style name="QuestEditorCategory" parent="QuestTextBody">

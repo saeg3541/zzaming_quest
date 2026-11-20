@@ -49,4 +49,5 @@
     <string name="quest_editor_preview_label">목록 미리보기</string>
     <string name="quest_editor_save_hint">변경한 내용은 퀘스트 목록에 반영돼요.</string>
     <string name="quest_editor_save">변경사항 저장</string>
+    <string name="quest_editor_preview_done">완료 · +%1$s XP</string>
 </resources>

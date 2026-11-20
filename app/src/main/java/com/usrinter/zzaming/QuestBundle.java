@@ -4,11 +4,13 @@ public class QuestBundle {
     private String bundleId;
     private String name;
     private String description;
+    private QuestRank rank;
 
-    public QuestBundle(String bundleId, String name, String description) {
+    public QuestBundle(String bundleId, String name, String description, QuestRank rank) {
         this.bundleId = bundleId;
         this.name = name;
         this.description = description;
+        this.rank = rank;
     }
 
     public String getBundleId() {
@@ -33,5 +35,13 @@ public class QuestBundle {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public QuestRank getRank() {
+        return rank;
+    }
+
+    public void setRank(QuestRank rank) {
+        this.rank = rank;
     }
 }

@@ -46,10 +46,13 @@ public class QuestAdapter extends RecyclerView.Adapter<QuestAdapter.QuestViewHol
         private void bindQuestTitle(String questTitle) {
             binding.questItemTitle.setText(questTitle);
         }
-        private void bindQuestDescription(String questDescription) {
-            binding.questItemDetails.setText(questDescription);
+        private void bindQuestDetail(Quest quest, QuestProgress progress) {
+            if(progress.isCompleted())
+               binding.questItemDetails.setText(itemView.getContext().getString(R.string.quest_editor_preview_done, Integer.toString(quest.getRewardXp())));
+            else
+               binding.questItemDetails.setText(itemView.getContext().getString(R.string.quest_item_reward_format, quest.getCategory().getName(), quest.getRewardXp()));
         }
-        private void bindQuestCheckBox(QuestProgress progress, OnQuestCheckListener listener) {
+        private void bindQuestCheckBox(Quest quest, QuestProgress progress, OnQuestCheckListener listener) {
             // 리사이클 할떄 이전 없어진 리스너 재사용을 방지, 체크 형태도 현재 형태로
             binding.questItemCheck.setOnCheckedChangeListener(null);
             binding.questItemCheck.setChecked(progress.isCompleted());
@@ -57,6 +60,7 @@ public class QuestAdapter extends RecyclerView.Adapter<QuestAdapter.QuestViewHol
                 @Override
                 public void onCheckedChanged(@NonNull CompoundButton compoundButton, boolean isChecked) {
                     progress.setCompleted(isChecked);
+                    bindQuestDetail(quest, progress);
                     if (listener != null) {
                         listener.onQuestCheckedChanged();
                     }
@@ -98,9 +102,9 @@ public class QuestAdapter extends RecyclerView.Adapter<QuestAdapter.QuestViewHol
 
         // item_quest 레이아웃에 제목, 설명
         holder.bindQuestTitle(quest.getTitle());
-        holder.bindQuestDescription(holder.itemView.getContext().getString(R.string.quest_item_reward_format, quest.getCategory().getName(), quest.getRewardXp()));
+        holder.bindQuestDetail(quest, progress);
         // 체크박스 눌렀을시 할 기능
-        holder.bindQuestCheckBox(progress, checkListener);
+        holder.bindQuestCheckBox(quest, progress, checkListener);
         // 퀘스트 >기호나 제목누르면 할 기능, 퀘스트를 넣었으니 해당 퀘스트가 가겠지?
         holder.clickQuestEvent(quest, clickListener);
 
