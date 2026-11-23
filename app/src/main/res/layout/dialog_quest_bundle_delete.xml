@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/quest_editor_input_background"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        style="@style/QuestTextHeading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:accessibilityHeading="true"
+        android:text="@string/quest_bundle_delete_title" />
+
+    <TextView
+        android:id="@+id/bundle_delete_message"
+        style="@style/QuestTextCaption"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/quest_bundle_delete_message"
+        tools:text="“100일 적응 미션” 묶음과 포함된 퀘스트가 함께 삭제돼요." />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bundle_delete_cancel"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:minHeight="48dp"
+            android:text="@android:string/cancel"
+            android:textAllCaps="false"
+            android:textColor="@color/quest_muted"
+            app:backgroundTint="@color/white"
+            app:cornerRadius="16dp"
+            app:strokeColor="@color/quest_line" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bundle_delete_confirm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:minHeight="48dp"
+            android:text="@string/quest_bundle_delete_confirm"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/quest_danger"
+            app:cornerRadius="16dp" />
+    </LinearLayout>
+</LinearLayout>

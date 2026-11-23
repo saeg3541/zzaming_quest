@@ -9,4 +9,5 @@
     <color name="quest_soft">#EBF1E5</color>
     <color name="quest_sand">#F6EEDB</color>
     <color name="quest_gold">#A67426</color>
+    <color name="quest_danger">#AE4940</color>
 </resources>

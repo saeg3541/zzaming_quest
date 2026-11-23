@@ -32,10 +32,11 @@ public class QuestEditorActivity extends AppCompatActivity {
             return insets;
         });
 
+        boolean isCreateMode = getIntent().getBooleanExtra("isCreateMode", false);
+        String bundleName = getIntent().getStringExtra("bundleName");
+        String bundleId = getIntent().getStringExtra("bundleId");
+
         String questId = getIntent().getStringExtra("questId");
-        binding.questEditorTitleInput.setText(getIntent().getStringExtra("questTitle"));
-        binding.questEditorDescriptionInput.setText(getIntent().getStringExtra("questDescription"));
-        binding.questEditorRewardXpInput.setText(String.format(Locale.getDefault(), "%d", getIntent().getIntExtra("questXp", 0)));
         binding.questEditorBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -43,22 +44,47 @@ public class QuestEditorActivity extends AppCompatActivity {
                 finish();
             }
         });
-        switch (getIntent().getStringExtra("questCategory")) {
-            case "LIFE":
-                binding.questEditorCategoryGroup.check(R.id.quest_editor_category_life);
-                break;
-            case "DUTY":
-                binding.questEditorCategoryGroup.check(R.id.quest_editor_category_duty);
-                break;
-            case "ADMIN":
-                binding.questEditorCategoryGroup.check(R.id.quest_editor_category_admin);
-                break;
-            case "OTHER":
-                binding.questEditorCategoryGroup.check(R.id.quest_editor_category_other);
-                break;
-            default:
-                binding.questEditorCategoryGroup.check(R.id.quest_editor_category_life);
+
+
+        if(isCreateMode){
+            binding.questEditorHeading.setText(R.string.quest_editor_heading_create);
+            binding.questEditorFormHeading.setText(R.string.quest_editor_form_heading_create);
+            binding.questEditorIntro.setText(R.string.quest_editor_intro_create);
+            binding.questEditorSaveHint.setText(R.string.quest_editor_save_hint_create);
+            binding.questEditorTarget.setText(getString(R.string.quest_editor_target_create, bundleName));
+            binding.questEditorSave.setText(R.string.quest_editor_heading_create);
+
+        } else {
+            String questTitle = getIntent().getStringExtra("questTitle");
+            String questCategory = getIntent().getStringExtra("questCategory");
+            if(questCategory == null)
+                questCategory = "LIFE";
+
+            binding.questEditorTarget.setText(getString(R.string.quest_editor_target, questTitle));
+            binding.questEditorDescriptionInput.setText(getIntent().getStringExtra("questDescription"));
+            binding.questEditorRewardXpInput.setText(String.format(Locale.getDefault(), "%d", getIntent().getIntExtra("questXp", 0)));
+            binding.questEditorTitleInput.setText(questTitle);
+
+
+            switch (questCategory) {
+                case "LIFE":
+                    binding.questEditorCategoryGroup.check(R.id.quest_editor_category_life);
+                    break;
+                case "DUTY":
+                    binding.questEditorCategoryGroup.check(R.id.quest_editor_category_duty);
+                    break;
+                case "ADMIN":
+                    binding.questEditorCategoryGroup.check(R.id.quest_editor_category_admin);
+                    break;
+                case "OTHER":
+                    binding.questEditorCategoryGroup.check(R.id.quest_editor_category_other);
+                    break;
+                default:
+                    binding.questEditorCategoryGroup.check(R.id.quest_editor_category_life);
+            }
         }
+
+
 
         updatePreview(binding);
 
@@ -71,7 +97,6 @@ public class QuestEditorActivity extends AppCompatActivity {
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
             }
-
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -84,7 +109,12 @@ public class QuestEditorActivity extends AppCompatActivity {
         binding.questEditorSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String changedTitle = String.valueOf(binding.questEditorTitleInput.getText());
+                String changedTitle = String.valueOf(binding.questEditorTitleInput.getText()).trim();
+                if (changedTitle.isEmpty()) {
+                    binding.questEditorTitleInput.setError("퀘스트 이름을 입력해 주세요.");
+                    binding.questEditorTitleInput.requestFocus();
+                    return;
+                }
                 String changedDescription = String.valueOf(binding.questEditorDescriptionInput.getText());
                 String changedXpText = String.valueOf(binding.questEditorRewardXpInput.getText());
                 int changedXpInt = 0;
@@ -120,6 +150,8 @@ public class QuestEditorActivity extends AppCompatActivity {
                         .putExtra("questDescription", changedDescription)
                         .putExtra("questXp", changedXpInt)
                         .putExtra("questCategory", changedCategory != null ? changedCategory.name() : null)
+                        .putExtra("isCreateMode", isCreateMode)
+                        .putExtra("bundleId", bundleId)
                 );
                 finish();
             }

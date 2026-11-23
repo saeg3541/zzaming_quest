@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/QuestCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    app:cardBackgroundColor="@color/quest_canvas"
+    app:cardCornerRadius="12dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minHeight="62dp"
+        android:orientation="horizontal"
+        android:paddingEnd="12dp">
+
+        <ImageButton
+            android:id="@+id/bundle_quest_drag_handle"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/quest_item_reorder"
+            android:scaleType="center"
+            android:src="@drawable/quest_icon_grip" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp">
+
+            <TextView
+                android:id="@+id/bundle_quest_title"
+                style="@style/QuestTextBody"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="@string/quest_sample_locker" />
+
+            <TextView
+                android:id="@+id/bundle_quest_status"
+                style="@style/QuestTextCaption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                tools:text="@string/quest_status_done" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/bundle_quest_delete"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/quest_item_delete"
+            android:scaleType="center"
+            android:src="@drawable/quest_icon_trash" />
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

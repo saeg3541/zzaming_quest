@@ -87,11 +87,12 @@
                                 android:textColor="@color/quest_lime" />
 
                             <TextView
+                                android:id="@+id/quest_current_rank"
                                 style="@style/QuestTextHeading"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="4dp"
-                                android:text="@string/quest_current_rank"
+                                android:text="@string/quest_current_rank_first_class"
                                 android:textColor="@color/white" />
                         </LinearLayout>
 
@@ -239,7 +240,7 @@
                         style="@style/QuestTextHeading"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/quest_rank_heading" />
+                        android:text="@string/quest_rank_heading_first_class" />
 
                     <TextView
                         style="@style/QuestTextCaption"
