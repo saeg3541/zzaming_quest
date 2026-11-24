@@ -12,7 +12,9 @@
     <string name="quest_current_rank_first_class">일병 · 한 걸음 더</string>
     <string name="quest_current_rank_corporal">상병</string>
     <string name="quest_current_rank_sergeant">병장</string>
+    <string name="quest_xp_current_level_format">Lv. %1$d</string>
     <string name="quest_sample_level">Lv. 4</string>
+    <string name="quest_xp_current_xp_format">%1$d / %2$d XP &gt;</string>
     <string name="quest_sample_xp">320 / 500 XP &gt;</string>
     <string name="quest_rank_private">이병</string>
     <string name="quest_rank_first_class">일병</string>

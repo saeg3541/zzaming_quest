@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -75,23 +76,29 @@ public class QuestActivity extends AppCompatActivity {
         quests = questViewModel.getQuests();
         questProgresses = questViewModel.getQuestProgresses();
         // 체크한 랭크 불러오기
-        rank = questViewModel.getSelectedRank();
-        switch (rank) {
-            case PRIVATE:
-                binding.questRankTabs.check(R.id.quest_rank_tab_private);
-                break;
-            case FIRST_CLASS:
-                binding.questRankTabs.check(R.id.quest_rank_tab_first_class);
-                break;
-            case CORPORAL:
-                binding.questRankTabs.check(R.id.quest_rank_tab_corporal);
-                break;
-            case SERGEANT:
-                binding.questRankTabs.check(R.id.quest_rank_tab_sergeant);
-                break;
-        }
+        questViewModel.getSelectedRank().observe(this, new Observer<QuestRank>() {
+            @Override
+            public void onChanged(QuestRank questRank) {
+                rank = questRank;
+                switch (rank) {
+                    case PRIVATE:
+                        binding.questRankTabs.check(R.id.quest_rank_tab_private);
+                        break;
+                    case FIRST_CLASS:
+                        binding.questRankTabs.check(R.id.quest_rank_tab_first_class);
+                        break;
+                    case CORPORAL:
+                        binding.questRankTabs.check(R.id.quest_rank_tab_corporal);
+                        break;
+                    case SERGEANT:
+                        binding.questRankTabs.check(R.id.quest_rank_tab_sergeant);
+                        break;
+                }
+                showBundlesForRank(rank);
+            }
+        });
 
-        showBundlesForRank(rank);
+
 
 
         // 기존 퀘스트 예시 생성
@@ -264,20 +271,17 @@ public class QuestActivity extends AppCompatActivity {
         binding.questRankTabs.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(@NonNull RadioGroup radioGroup, int checkedId) {
+                // 계급 바꾸면 뷰모델에 값을 대입해서 바뀐 사실 알리기
                 if (checkedId == R.id.quest_rank_tab_private) {
-                    rank = QuestRank.PRIVATE;
+                    questViewModel.setSelectedRank(QuestRank.PRIVATE);
                 } else if (checkedId == R.id.quest_rank_tab_first_class) {
-                    rank = QuestRank.FIRST_CLASS;
+                    questViewModel.setSelectedRank(QuestRank.FIRST_CLASS);
                 } else if (checkedId == R.id.quest_rank_tab_corporal) {
-                    rank = QuestRank.CORPORAL;
+                    questViewModel.setSelectedRank(QuestRank.CORPORAL);
                 } else if (checkedId == R.id.quest_rank_tab_sergeant) {
-                    rank = QuestRank.SERGEANT;
+                    questViewModel.setSelectedRank(QuestRank.SERGEANT);
                 }
 
-                showBundlesForRank(rank);
-
-                // 추가로 현재 고른 계급 기억 (뷰모델로)
-                questViewModel.setSelectedRank(rank);
             }
         });
 
@@ -396,6 +400,7 @@ public class QuestActivity extends AppCompatActivity {
                     () -> {
                         updateQuestCount(card, bundleProgresses);
                         binding.questRankProgress.setText(getString(R.string.quest_rank_progress_format, countCompleted(rankProgresses),rankProgresses.size()));
+                        updateXpCard();
                     },
                     quest -> clickQuest(quest)
             );
@@ -454,6 +459,7 @@ public class QuestActivity extends AppCompatActivity {
 
         }
 
+        updateXpCard();
         binding.questRankProgress.setText(getString(R.string.quest_rank_progress_format, countCompleted(rankProgresses),rankProgresses.size()));
     }
 
@@ -523,5 +529,16 @@ public class QuestActivity extends AppCompatActivity {
 
         removeQuestsFromBundle(bundleId, questIds);
         questBundles.remove(bundle);
+    }
+
+    // 상단 xp 및 레벨 카드 업데이트 showBundlesForRank 맨 마지막에, checkedClickListener 마지막부분에 쓰임
+    private void updateXpCard() {
+        long totalXp = 320L + questViewModel.getCompletedQuestXp();
+        long level = 4 + (totalXp / 500L);
+        long currentXp = totalXp % 500L;
+        binding.questXpSettings.setText(getString(R.string.quest_xp_current_xp_format, currentXp, 500));
+        binding.questLevel.setText(getString(R.string.quest_xp_current_level_format, level));
+        binding.questXpProgress.setMax(500);
+        binding.questXpProgress.setProgressCompat((int)currentXp, true);
     }
 }

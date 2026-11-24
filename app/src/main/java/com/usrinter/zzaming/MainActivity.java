@@ -17,7 +17,6 @@ import com.google.firebase.auth.FirebaseAuth;
 
 
 public class MainActivity extends AppCompatActivity {
-
     private final String TAG = "LGG";
 
     @Override
@@ -32,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-
         Button testSignOutButton = findViewById(R.id.test_logout_button);
         testSignOutButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,8 +39,6 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
-
-
 
     }
     @Override

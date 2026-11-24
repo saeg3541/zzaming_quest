@@ -3,13 +3,15 @@ package com.usrinter.zzaming;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 public class QuestViewModel extends ViewModel{
     private final List<QuestBundle> questBundles = new ArrayList<>();
     private final List<Quest> quests = new ArrayList<>();
     private final List<QuestProgress> questProgresses = new ArrayList<>();
-    private QuestRank selectedRank = QuestRank.FIRST_CLASS;
+    private MutableLiveData<QuestRank> selectedRank = new MutableLiveData<>(QuestRank.FIRST_CLASS);
 
 
     public QuestViewModel() {
@@ -58,11 +60,28 @@ public class QuestViewModel extends ViewModel{
     }
 
 
-    public QuestRank getSelectedRank() {
+    public LiveData<QuestRank> getSelectedRank() {
         return selectedRank;
     }
 
     public void setSelectedRank(QuestRank selectedRank) {
-        this.selectedRank = selectedRank;
+        if(this.selectedRank.getValue() == selectedRank)
+            return;
+        this.selectedRank.setValue(selectedRank);
+    }
+
+    public long getCompletedQuestXp() {
+        long completedQuestXp = 0L;
+
+        for(Quest quest : quests) {
+            for(QuestProgress questProgress : questProgresses) {
+                if(quest.getQuestId().equals(questProgress.getQuestId())) {
+                    if(questProgress.isCompleted())
+                        completedQuestXp += quest.getRewardXp();
+                    break;
+                }
+            }
+        }
+        return completedQuestXp;
     }
 }

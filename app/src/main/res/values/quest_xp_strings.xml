@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="quest_xp_detail_title">XP 상세</string>
+    <string name="quest_xp_setting_title">레벨업 기준 설정</string>
+    <string name="quest_xp_growth">나의 성장 기록</string>
+    <string name="quest_xp_growth_intro">퀘스트를 완료하며 차곡차곡 성장해요.</string>
+    <string name="quest_xp_level_label">현재 레벨</string>
+    <string name="quest_xp_progress_label">현재 레벨 XP</string>
+    <string name="quest_xp_total_label">누적 획득 XP</string>
+    <string name="quest_xp_total_hint">지금까지 퀘스트로 모은 전체 XP예요.</string>
+    <string name="quest_xp_rule_heading">현재 레벨업 기준</string>
+    <string name="quest_xp_rule_hint">필요 XP는 각 레벨 구간에 따로 적용돼요.</string>
+    <string name="quest_xp_accrual_heading">XP는 퀘스트 완료로 쌓여요.</string>
+    <string name="quest_xp_accrual_hint">퀘스트별 보상 XP는 퀘스트 추가·편집\n화면에서 설정할 수 있어요.</string>
+    <string name="quest_xp_setting_intro_title">나에게 맞는 성장 속도</string>
+    <string name="quest_xp_setting_intro">각 레벨에서 다음 레벨까지 필요한 XP를\n설정해 주세요.</string>
+    <string name="quest_xp_rule_column">레벨 구간</string>
+    <string name="quest_xp_required_column">필요 XP</string>
+    <string name="quest_xp_add_range">＋ 구간 추가</string>
+    <string name="quest_xp_remove_range">마지막 구간 삭제</string>
+    <string name="quest_xp_recalculate_title">기준을 변경하면</string>
+    <string name="quest_xp_recalculate_hint">누적 XP를 기준으로 레벨과 진행도가\n다시 계산돼요. 각 입력값은 해당 구간에\n필요한 XP이며 누적 XP 기준이 아니에요.</string>
+
+    <string name="quest_xp_detail_sample_progress">320 / 500 XP</string>
+    <string name="quest_xp_detail_sample_remaining">Lv. 5까지 180 XP 남았어요.</string>
+    <string name="quest_xp_detail_sample_total">920 XP</string>
+    <string name="quest_xp_detail_sample_threshold">500 XP</string>
+
+    <string name="quest_xp_range_1">Lv. 1 → Lv. 2</string>
+    <string name="quest_xp_default_1" translatable="false">100</string>
+    <string name="quest_xp_range_2">Lv. 2 → Lv. 3</string>
+    <string name="quest_xp_default_2" translatable="false">200</string>
+    <string name="quest_xp_range_3">Lv. 3 → Lv. 4</string>
+    <string name="quest_xp_default_3" translatable="false">300</string>
+    <string name="quest_xp_range_4">Lv. 4 → Lv. 5</string>
+    <string name="quest_xp_default_4" translatable="false">500</string>
+    <string name="quest_xp_range_5">Lv. 5 → Lv. 6</string>
+    <string name="quest_xp_default_5" translatable="false">700</string>
+</resources>

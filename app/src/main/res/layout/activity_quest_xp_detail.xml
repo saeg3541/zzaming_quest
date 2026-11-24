@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/quest_canvas"
+    tools:context=".QuestXpDetailActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="52dp">
+
+        <ImageButton
+            android:id="@+id/xp_detail_back"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="start|center_vertical"
+            android:layout_marginStart="6dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/quest_back"
+            android:scaleType="center"
+            android:src="@drawable/quest_icon_back" />
+
+        <TextView
+            style="@style/QuestTextHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/quest_xp_detail_title"
+            android:layout_gravity="center"
+            android:accessibilityHeading="true" />
+
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="20dp"
+            android:paddingTop="12dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="20dp">
+
+            <TextView
+                style="@style/QuestTextHeading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/quest_xp_growth"
+                android:accessibilityHeading="true" />
+
+            <TextView
+                style="@style/QuestTextCaption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/quest_xp_growth_intro"
+                android:layout_marginTop="4dp" />
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/QuestCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardBackgroundColor="@color/quest_brand"
+                app:cardCornerRadius="24dp"
+                app:contentPadding="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/QuestTextCaption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/quest_xp_level_label"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:id="@+id/xp_detail_level"
+                        style="@style/QuestTextHeading"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/quest_sample_level"
+                        android:layout_marginTop="12dp"
+                        android:textColor="@color/quest_lime"
+                        android:minHeight="48dp"
+                        android:textSize="36sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/QuestTextCaption"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/quest_xp_progress_label"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="8dp"
+                            android:textColor="@color/white" />
+
+                        <TextView
+                            android:id="@+id/xp_detail_current_xp"
+                            style="@style/QuestTextBody"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/quest_xp_detail_sample_progress"
+                            android:gravity="end|center_vertical"
+                            android:textColor="@color/white" />
+
+                    </LinearLayout>
+
+                    <com.google.android.material.progressindicator.LinearProgressIndicator
+                        android:id="@+id/xp_detail_progress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:importantForAccessibility="no"
+                        android:max="500"
+                        android:progress="320"
+                        app:indicatorColor="@color/quest_lime"
+                        app:indicatorTrackGapSize="0dp"
+                        app:trackColor="@color/quest_muted"
+                        app:trackCornerRadius="4dp"
+                        app:trackStopIndicatorSize="0dp"
+                        app:trackThickness="7dp" />
+
+                    <TextView
+                        android:id="@+id/xp_detail_remaining"
+                        style="@style/QuestTextCaption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/quest_xp_detail_sample_remaining"
+                        android:layout_marginTop="12dp"
+                        android:textColor="@color/quest_lime" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/QuestCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="16dp"
+                app:contentPadding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/QuestTextCaption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/quest_xp_total_label" />
+
+                    <TextView
+                        android:id="@+id/xp_detail_total"
+                        style="@style/QuestTextHeading"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/quest_xp_detail_sample_total"
+                        android:layout_marginTop="4dp"
+                        android:minHeight="36dp"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        style="@style/QuestTextCaption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/quest_xp_total_hint"
+                        android:layout_marginTop="4dp" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/QuestCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="16dp"
+                app:contentPadding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/QuestTextHeading"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/quest_xp_rule_heading"
+                        android:accessibilityHeading="true" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/xp_detail_rule_range"
+                            style="@style/QuestTextBody"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/quest_xp_range_4"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="8dp" />
+
+                        <TextView
+                            android:id="@+id/xp_detail_rule_xp"
+                            style="@style/QuestTextBody"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/quest_xp_detail_sample_threshold"
+                            android:gravity="end|center_vertical"
+                            android:textColor="@color/quest_brand" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/QuestTextCaption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/quest_xp_rule_hint"
+                        android:layout_marginTop="8dp" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/xp_detail_open_settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="@string/quest_xp_setting_title"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:backgroundTint="@color/quest_brand"
+                app:cornerRadius="16dp"
+                android:layout_marginTop="16dp"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/QuestCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardBackgroundColor="@color/quest_soft"
+                app:cardCornerRadius="16dp"
+                app:contentPadding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/QuestTextBody"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/quest_xp_accrual_heading"
+                        android:textColor="@color/quest_brand" />
+
+                    <TextView
+                        style="@style/QuestTextCaption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/quest_xp_accrual_hint"
+                        android:layout_marginTop="4dp"
+                        android:lineHeight="18sp" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
