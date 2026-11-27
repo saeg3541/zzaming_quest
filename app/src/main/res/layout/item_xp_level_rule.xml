@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/QuestXpRuleRow">
+
+    <TextView
+        android:id="@+id/rule_range"
+        style="@style/QuestTextBody"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginEnd="8dp"
+        tools:text="Lv. 1 → Lv. 2" />
+
+    <TextView
+        android:id="@+id/rule_xp"
+        style="@style/QuestTextBody"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/quest_brand"
+        tools:text="100 XP" />
+
+</LinearLayout>

@@ -7,11 +7,18 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import kotlin.experimental.ExpectRefinement;
+
 public class QuestViewModel extends ViewModel{
     private final List<QuestBundle> questBundles = new ArrayList<>();
     private final List<Quest> quests = new ArrayList<>();
     private final List<QuestProgress> questProgresses = new ArrayList<>();
+
+    private ArrayList<Integer> levelRequirements = new ArrayList<>();
+
+
     private MutableLiveData<QuestRank> selectedRank = new MutableLiveData<>(QuestRank.FIRST_CLASS);
+
 
 
     public QuestViewModel() {
@@ -32,20 +39,21 @@ public class QuestViewModel extends ViewModel{
         quests.add(new Quest("testId008", questBundles.get(2).getBundleId(), "침대 정리", "testDescription3", 30, QuestCategory.DUTY));
         quests.add(new Quest("testId009", questBundles.get(2).getBundleId(), "책상 정리", "testDescription3", 30, QuestCategory.ADMIN));
 
-
         for (Quest quest : quests) {
             questProgresses.add(new QuestProgress(quest.getQuestId()));
         }
 
 
+        levelRequirements.add(100);
+        levelRequirements.add(200);
+        levelRequirements.add(300);
+        levelRequirements.add(500);
+        levelRequirements.add(700);
+
     }
 
 
     public List<QuestBundle> getQuestBundles() {
-
-
-
-
         return questBundles;
     }
 
@@ -84,4 +92,24 @@ public class QuestViewModel extends ViewModel{
         }
         return completedQuestXp;
     }
+
+    public ArrayList<Integer> getLevelRequirements() {
+        return this.levelRequirements;
+    }
+
+    public void setLevelRequirements(ArrayList<Integer> changed) {
+        this.levelRequirements = new ArrayList<>(changed);
+    }
+
+    public long getTotalQuestRewardXp() {
+        long totalRewardXp = 0L;
+
+        for (Quest quest : quests) {
+            totalRewardXp += quest.getRewardXp();
+        }
+
+        return totalRewardXp;
+    }
+
+
 }

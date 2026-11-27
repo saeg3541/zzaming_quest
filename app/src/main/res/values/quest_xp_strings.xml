@@ -14,8 +14,15 @@
     <string name="quest_xp_accrual_hint">퀘스트별 보상 XP는 퀘스트 추가·편집\n화면에서 설정할 수 있어요.</string>
     <string name="quest_xp_setting_intro_title">나에게 맞는 성장 속도</string>
     <string name="quest_xp_setting_intro">각 레벨에서 다음 레벨까지 필요한 XP를\n설정해 주세요.</string>
+    <string name="quest_xp_summary_label">구간 필요 XP / 전체 퀘스트 XP</string>
+    <string name="quest_xp_summary_placeholder">— / — XP</string>
+    <string name="quest_xp_summary_value">%1$,d / %2$,d XP</string>
+    <string name="quest_xp_summary_shortage">전체 퀘스트 보상보다 %1$,d XP 더 필요해요.</string>
+    <string name="quest_xp_summary_surplus">모든 레벨 구간을 채우고도 %1$,d XP가 남아요.</string>
+    <string name="quest_xp_summary_equal">전체 퀘스트 보상과 필요한 XP가 딱 맞아요.</string>
     <string name="quest_xp_rule_column">레벨 구간</string>
     <string name="quest_xp_required_column">필요 XP</string>
+    <string name="quest_xp_rule_required_xp_format">%1$,d XP</string>
     <string name="quest_xp_add_range">＋ 구간 추가</string>
     <string name="quest_xp_remove_range">마지막 구간 삭제</string>
     <string name="quest_xp_recalculate_title">기준을 변경하면</string>

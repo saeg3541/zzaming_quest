@@ -49,6 +49,7 @@ public class QuestActivity extends AppCompatActivity {
     private ActivityResultLauncher<Intent> launcher;
     private ActivityResultLauncher<Intent> bundleCreateLauncher;
     private ActivityResultLauncher<Intent> bundleEditLauncher;
+    private ActivityResultLauncher<Intent> xpLauncher;
 
 
 
@@ -68,6 +69,9 @@ public class QuestActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        //편집 권한 확인(간부), 메인 엑티비티로 들어왔을 때 가정
+        canEditQuest = getIntent().getBooleanExtra("canEditQuest", false);
 
         // 뷰 모델의 퀘스트, 진행사항, 묶음 가져오기(레퍼런스도 뷰모델꺼 사용)
         questViewModel = new ViewModelProvider(this).get(QuestViewModel.class);
@@ -267,6 +271,26 @@ public class QuestActivity extends AppCompatActivity {
             }
         });
 
+        xpLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+            @Override
+            public void onActivityResult(ActivityResult o) {
+                Intent data = o.getData();
+                if (o.getResultCode() != RESULT_OK || data == null) {
+                    return;
+                }
+
+                ArrayList<Integer> changed = data.getIntegerArrayListExtra("levelRequirements");
+                if (changed == null || changed.isEmpty()) {
+                    return;
+                }
+
+                questViewModel.setLevelRequirements(changed);
+                updateXpCard();
+            }
+        });
+
+
+
         // 계급 바꾸면 해야할 것 표시
         binding.questRankTabs.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -300,6 +324,19 @@ public class QuestActivity extends AppCompatActivity {
         else {
             binding.questBundleAdd.setVisibility(View.GONE);
         }
+
+        // Xp 텍스트 리스너 (XP 상세 내용 액티비티 접근)
+        binding.questXpSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent xpIntent = new Intent(QuestActivity.this, QuestXpDetailActivity.class)
+                        .putExtra("totalXp", questViewModel.getCompletedQuestXp() + 2000L)
+                        .putExtra("totalQuestRewardXp", questViewModel.getTotalQuestRewardXp())
+                        .putIntegerArrayListExtra("levelRequirements", questViewModel.getLevelRequirements())
+                        .putExtra("canEditQuest", canEditQuest);
+                xpLauncher.launch(xpIntent);
+            }
+        });
 
     }
 
@@ -533,12 +570,35 @@ public class QuestActivity extends AppCompatActivity {
 
     // 상단 xp 및 레벨 카드 업데이트 showBundlesForRank 맨 마지막에, checkedClickListener 마지막부분에 쓰임
     private void updateXpCard() {
-        long totalXp = 320L + questViewModel.getCompletedQuestXp();
-        long level = 4 + (totalXp / 500L);
-        long currentXp = totalXp % 500L;
-        binding.questXpSettings.setText(getString(R.string.quest_xp_current_xp_format, currentXp, 500));
-        binding.questLevel.setText(getString(R.string.quest_xp_current_level_format, level));
-        binding.questXpProgress.setMax(500);
+        long totalXp = questViewModel.getCompletedQuestXp() + 2000L;
+        ArrayList<Integer> levelRequirements = questViewModel.getLevelRequirements();
+
+        long currentXp = totalXp;
+        int level = 1;
+        int nextLevelXp = 0;
+        boolean isMaxLevel = true;
+        for(int levelRequirement : levelRequirements) {
+            // 현재 레벨 도달시에 (누적xp에서 필요xp를 계속 빼는데, 빼는 값이 필요 xp보다 작아질 경우)
+            if(levelRequirement > currentXp) {
+                nextLevelXp = levelRequirement;
+                isMaxLevel = false;
+                break;
+            }
+            currentXp -= levelRequirement;
+            level++;
+        }
+
+        if(isMaxLevel && !levelRequirements.isEmpty()) {
+            nextLevelXp = levelRequirements.get(levelRequirements.size() - 1);
+            currentXp += nextLevelXp;
+            binding.questLevel.setText(R.string.quest_xp_detail_max_level);
+        } else {
+            binding.questLevel.setText(getString(R.string.quest_xp_current_level_format, level));
+        }
+
+        binding.questXpSettings.setText(getString(R.string.quest_xp_current_xp_format, currentXp, nextLevelXp));
+
+        binding.questXpProgress.setMax(nextLevelXp);
         binding.questXpProgress.setProgressCompat((int)currentXp, true);
     }
 }
